@@ -1,6 +1,32 @@
 $main-color: #0B0C10
 
-.body
-  background: $main-color
+body
   width: 100%
-  color: yellow
+
+.child-center
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+
+.h-100px
+  height: 100px
+
+.cross
+  cursor: pointer
+
+.cross:before, .cross:after
+  content: ""
+  position: absolute
+  margin-left: -5%
+  width: 10%
+  height: 4px
+
+  background: darkcyan
+
+.cross:before
+  transform: rotate(45deg)
+.cross:after
+  transform: rotate(-45deg)
+
+.zero
