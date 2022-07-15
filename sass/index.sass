@@ -1,4 +1,4 @@
-$main-color: #0B0C10
+$main-color: #d7d7d7
 $cross-color: darkcyan
 $zero-color: #c41e3a
 body
@@ -6,13 +6,23 @@ body
 
 .h-100vh
   height: 100vh
-.row
-  min-width: 50%
-  min-height: 50%
+
 .child-center
   display: flex
   justify-content: center
   align-items: center
+
+.tic-table
+  min-width: 60%
+  min-height: 60%
+  max-width: 100%
+  max-height: 100%
+  background: $main-color
+  padding: 10px
+  border-radius: 10px
+
+.b-2-s
+  border: 2px solid grey
 
 .cross:before, .cross:after
   content: ""
@@ -27,27 +37,23 @@ body
 .cross:after
   transform: rotate(-45deg)
 
-
 .zero:before, .zero:after
   content: ""
   position: absolute
   border-radius: 50%
 
 .zero:before
-  margin-left: -5%
-  margin-top: -5%
-  background-color: $zero-color
-  width: 10%
-  height: 10vw
-
-.zero:after
-  width: 8%
-  height: 8vw
   margin-left: -4%
   margin-top: -4%
-  background-color: white
+  background-color: $zero-color
+  width: 8%
+  height: 8vw
+
+.zero:after
+  width: 7%
+  height: 7vw
+  margin-left: -3.5%
+  margin-top: -3.5%
+  background-color: $main-color
   box-shadow: -2px -1px 10px 1.2px #f34723
   -moz-box-shadow: -2px -1px 10px 1.2px #f34723
-
-  .suck
-    background: #d63384
