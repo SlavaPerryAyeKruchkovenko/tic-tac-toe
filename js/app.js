@@ -29,12 +29,18 @@ function addSign(id){
             if(checkState(isUser)){
                 $(document).ready(function (){
                     alert((isUser?"Пользователь":"Компьютер") + " выйграл")
+                    updateScore(isUser)
+                    start()
+                })
+            }
+            else if(!game.field.some((x) => x === null)){
+                $(document).ready(function (){
+                    alert("Ничья")
                     start()
                 })
             }
             else{
                 game.isUser = !isUser;
-
             }
         }
     }else{
@@ -85,4 +91,14 @@ function checkDiagonal(isUser, points){
         }
     }
     return true
+}
+
+function updateScore(isUser){
+    if(isUser){
+        game.userWin++
+    }else{
+        game.computerWin++
+    }
+    console.log($('#score'))
+    $('#score').text(`Счет ${game.userWin}:${game.computerWin}`)
 }
