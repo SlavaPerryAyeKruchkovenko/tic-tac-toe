@@ -10,10 +10,14 @@ const game = new Game()
 function start(){
     game.field.splice(0,9)
     game.isUser = true
+    if($('.tic-table').hasClass("glare")){
+        $('.tic-table').removeClass("glare")
+    }
     $(document).ready(function (){
         for(let i = 1; i<=9; i++){
             game.field.push(null)
         }
+        $('.tic-table').addClass("glare")
         $('.zero').remove()
         $('.cross').remove()
     })
@@ -99,6 +103,5 @@ function updateScore(isUser){
     }else{
         game.computerWin++
     }
-    console.log($('#score'))
     $('#score').text(`Счет ${game.userWin}:${game.computerWin}`)
 }
