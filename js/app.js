@@ -32,8 +32,11 @@ function addSign(id){
                 isUser?$('<div class="cross">'):$('<div class="zero">'))
             if(checkState(isUser)){
                 $(document).ready(function (){
-                    alert((isUser?"Пользователь":"Компьютер") + " выйграл")
+                    if($("#"+id).is(':animated')){
+                        $("#"+id).stop()
+                    }
                     updateScore(isUser)
+                    alert((isUser?"Пользователь":"Компьютер") + " выйграл")
                     start()
                 })
             }

@@ -1,5 +1,6 @@
 @import index
-
+$cross-shadow:#000080
+$zero-shadow:#f34723
 .glare:after
   content: ''
   width: 20%
@@ -79,9 +80,11 @@
   position: absolute
   margin-left: -5%
   width: 10%
-  height: 4px
+  height: 0.7%
   background: $cross-color
-
+  box-shadow: 0 0 5px 1px $cross-shadow
+  -moz-box-shadow: 0 0 5px 1px $cross-shadow
+  -webkit-box-shadow: 0 0 5px 1px $cross-shadow
 
 .cross:before
   transform: rotate(45deg)
@@ -115,6 +118,9 @@
   -moz-animation: add-zero 0.5s
   -o-animation: add-zero 0.5s
   animation: add-zero 0.5s
+  box-shadow: 0 0 10px 1px $zero-shadow
+  -moz-box-shadow: 0 0 10px 1px $zero-shadow
+  -webkit-box-shadow: 0 0 10px 1px $zero-shadow
 
 .zero:after
   width: 7%
@@ -122,30 +128,56 @@
   margin-left: -3.5%
   margin-top: -3.5%
   background-color: $main-color
-  box-shadow: -2px -1px 10px 1.2px #f34723
-  -moz-box-shadow: -2px -1px 10px 1.2px #f34723
-  -webkit-box-shadow: -2px -1px 10px 1.2px #f34723
+  box-shadow: inset 0 0 10px 1px $zero-shadow
+  -moz-box-shadow: inset 0 0 10px 1px $zero-shadow
+  -webkit-box-shadow: inset 0 0 10px 1px $zero-shadow
+  animation: add-zero-place 0.5s
 
 @keyframes add-left-cross
   0%
     transform: translate(-50px, -50px) rotate(45deg)
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
   100%
     transform: translate(0, 0) rotate(45deg)
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
 
 @keyframes add-right-cross
   0%
     transform: translate(50px, -50px) rotate(-45deg)
     width: 0
     height: 0
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
   60%
     transform: translate(50px, -50px) rotate(-45deg)
   100%
     transform: translate(0, 0) rotate(-45deg)
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
+
+@keyframes add-zero-place
+  0%
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
+  100%
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
 
 @keyframes add-zero
   0%
     background: $main-color
     opacity: 0
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
   12.5%
     background-image: linear-gradient(135deg, transparent 50%, $main-color 50%), linear-gradient(90deg, $main-color 50%, transparent 50%)
     opacity: 0.125
@@ -170,3 +202,6 @@
   100%
     background-image: none
     opacity: 1
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
