@@ -3,15 +3,18 @@ class Game{
     isUser = null;
     userWin = 0;
     computerWin = 0;
+    canPlay = true
 }
 
 const game = new Game()
 
 function start(){
+    game.canPlay = true
     game.field.splice(0,9)
     game.isUser = true
-    if($('.tic-table').hasClass("glare")){
-        $('.tic-table').removeClass("glare")
+    const ticTable = $('.tic-table')
+    if(ticTable.hasClass("glare")){
+        ticTable.removeClass("glare")
     }
 
     $(document).ready(function (){
@@ -35,19 +38,22 @@ function addSign(id){
                 $(document).ready(function (){
                     updateScore(isUser)
                     callMessage((isUser?"Пользователь":"Компьютер") + " выйграл")
+                    game.isUser = null
+                    game.canPlay = false
                 })
             }
             else if(!game.field.some((x) => x === null)){
                 $(document).ready(function (){
-                    alert("Ничья")
-                    start()
+                    callMessage(("Ничья"))
+                    game.isUser = null
+                    game.canPlay = false
                 })
             }
             else{
                 game.isUser = !isUser;
             }
         }
-    }else{
+    }else if(game.canPlay){
         start()
     }
 }
