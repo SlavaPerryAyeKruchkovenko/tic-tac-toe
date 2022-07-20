@@ -1,3 +1,5 @@
+@import index
+
 .glare:after
   content: ''
   width: 20%
@@ -8,6 +10,9 @@
   opacity: 0.5
   filter: blur(5px)
   background: linear-gradient(to left, transparent 0%, #fff 40%, #fff 60%, transparent 100%)
+  -webkit-animation: flash 1s
+  -moz-animation: flash 1s
+  -o-animation: flash 1s
   animation: flash 1s
 
 @keyframes flash
@@ -18,15 +23,6 @@
   100%
     transform: translate(400%, 0) rotate(35deg)
     width: 15%
-
-.custom-btn:before,
-.custom-btn:after
-  position: absolute
-  content: ""
-  right: 0
-  bottom: 0
-  background: black
-  transition: all 0.3s ease
 
 .custom-btn:before
   height: 0
@@ -45,14 +41,24 @@
 .custom-btn:hover:after
   width: 100%
 
+.custom-btn:before,
+.custom-btn:after,
 .custom-btn span:before,
 .custom-btn span:after
   position: absolute
   content: ""
-  left: 0
-  top: 0
   background: black
   transition: all 0.3s ease
+
+.custom-btn:before,
+.custom-btn:after
+  right: 0
+  bottom: 0
+
+.custom-btn span:before,
+.custom-btn span:after
+  left: 0
+  top: 0
 
 .custom-btn span:before
   width: 2px
@@ -67,3 +73,100 @@
 
 .custom-btn span:hover:after
   width: 100%
+
+.cross:before, .cross:after
+  content: ""
+  position: absolute
+  margin-left: -5%
+  width: 10%
+  height: 4px
+  background: $cross-color
+
+
+.cross:before
+  transform: rotate(45deg)
+  -webkit-animation: add-left-cross 0.25s
+  -moz-animation: add-left-cross 0.25s
+  -o-animation: add-left-cross 0.25s
+  animation: add-left-cross 0.25s
+
+.cross:after
+  transform: rotate(-45deg)
+  animation-delay: 0.25s
+  -webkit-animation: add-right-cross 0.25s
+  -moz-animation: add-right-cross 0.25s
+  -o-animation: add-right-cross 0.25s
+  animation: add-right-cross 0.25s
+
+.zero:before, .zero:after
+  content: ""
+  position: absolute
+  -moz-border-radius: 50%
+  -webkit-border-radius: 50%
+  border-radius: 50%
+
+.zero:before
+  margin-left: -4%
+  margin-top: -4%
+  background-color: $zero-color
+  width: 8%
+  height: 8vw
+  -webkit-animation: add-zero 0.5s
+  -moz-animation: add-zero 0.5s
+  -o-animation: add-zero 0.5s
+  animation: add-zero 0.5s
+
+.zero:after
+  width: 7%
+  height: 7vw
+  margin-left: -3.5%
+  margin-top: -3.5%
+  background-color: $main-color
+  box-shadow: -2px -1px 10px 1.2px #f34723
+  -moz-box-shadow: -2px -1px 10px 1.2px #f34723
+  -webkit-box-shadow: -2px -1px 10px 1.2px #f34723
+
+@keyframes add-left-cross
+  0%
+    transform: translate(-50px, -50px) rotate(45deg)
+  100%
+    transform: translate(0, 0) rotate(45deg)
+
+@keyframes add-right-cross
+  0%
+    transform: translate(50px, -50px) rotate(-45deg)
+    width: 0
+    height: 0
+  60%
+    transform: translate(50px, -50px) rotate(-45deg)
+  100%
+    transform: translate(0, 0) rotate(-45deg)
+
+@keyframes add-zero
+  0%
+    background: $main-color
+    opacity: 0
+  12.5%
+    background-image: linear-gradient(135deg, transparent 50%, $main-color 50%), linear-gradient(90deg, $main-color 50%, transparent 50%)
+    opacity: 0.125
+  25%
+    background-image: linear-gradient(180deg, transparent 50%, $main-color 50%), linear-gradient(90deg, $main-color 50%, transparent 50%)
+    opacity: 0.25
+  37.5%
+    background-image: linear-gradient(225deg, transparent 50%, $main-color 50%), linear-gradient(90deg, $main-color 50%, transparent 50%)
+    opacity: 0.375
+  50%
+    background-image: linear-gradient(270deg, transparent 50%, $main-color 50%), linear-gradient(90deg, $main-color 50%, transparent 50%)
+    opacity: 0.5
+  62.5%
+    background-image: linear-gradient(135deg, transparent 50%, $zero-color 50%), linear-gradient(90deg, $main-color 50%, transparent 50%)
+    opacity: 0.625
+  75%
+    background-image: linear-gradient(180deg, transparent 50%, $zero-color 50%), linear-gradient(90deg, $main-color 50%, transparent 50%)
+    opacity: 0.75
+  87.5%
+    background-image: linear-gradient(225deg, transparent 50%, $zero-color 50%), linear-gradient(90deg, $main-color 50%, transparent 50%)
+    opacity: 0.875
+  100%
+    background-image: none
+    opacity: 1
