@@ -3,34 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="sass/index.css">
     <link rel="stylesheet" href="sass/animation.css">
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
-    <div class="container-xxl h-100vh child-center">
-        <div>
-            <p id="score">Счет 0:0</p>
-        </div>
-        <div class="row row-cols-3 tic-table">
-            <div class="col child-center b-2-s" id="1" onclick="addSign(this.id)"></div>
-            <div class="col child-center b-2-s" id="2" onclick="addSign(this.id)"></div>
-            <div class="col child-center b-2-s" id="3" onclick="addSign(this.id)"></div>
-            <div class="col child-center b-2-s" id="4" onclick="addSign(this.id)"></div>
-            <div class="col child-center b-2-s" id="5" onclick="addSign(this.id)"></div>
-            <div class="col child-center b-2-s" id="6" onclick="addSign(this.id)"></div>
-            <div class="col child-center b-2-s" id="7" onclick="addSign(this.id)"></div>
-            <div class="col child-center b-2-s" id="8" onclick="addSign(this.id)"></div>
-            <div class="col child-center b-2-s" id="9" onclick="addSign(this.id)"></div>
-        </div>
-        <div>
-            <button class="custom-btn" onclick="start()">
-                <span>Start</span>
-            </button>
-        </div>
+<div class="container-xxl h-100vh child-center">
+    <div>
+        <p id="score">Счет 0:0</p>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <div class="row row-cols-3 tic-table">
+        <div class="col child-center b-2-s" id="1" onclick="addSign(this.id)"></div>
+        <div class="col child-center b-2-s" id="2" onclick="addSign(this.id)"></div>
+        <div class="col child-center b-2-s" id="3" onclick="addSign(this.id)"></div>
+        <div class="col child-center b-2-s" id="4" onclick="addSign(this.id)"></div>
+        <div class="col child-center b-2-s" id="5" onclick="addSign(this.id)"></div>
+        <div class="col child-center b-2-s" id="6" onclick="addSign(this.id)"></div>
+        <div class="col child-center b-2-s" id="7" onclick="addSign(this.id)"></div>
+        <div class="col child-center b-2-s" id="8" onclick="addSign(this.id)"></div>
+        <div class="col child-center b-2-s" id="9" onclick="addSign(this.id)"></div>
+    </div>
+    <div>
+        <button class="custom-btn" onclick="start()">
+            <span>Start</span>
+        </button>
+    </div>
+
+</div>
+<script src="js/bootstrap.bundle.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

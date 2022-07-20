@@ -13,6 +13,7 @@ function start(){
     if($('.tic-table').hasClass("glare")){
         $('.tic-table').removeClass("glare")
     }
+
     $(document).ready(function (){
         for(let i = 1; i<=9; i++){
             game.field.push(null)
@@ -32,12 +33,8 @@ function addSign(id){
                 isUser?$('<div class="cross">'):$('<div class="zero">'))
             if(checkState(isUser)){
                 $(document).ready(function (){
-                    if($("#"+id).is(':animated')){
-                        $("#"+id).stop()
-                    }
                     updateScore(isUser)
-                    alert((isUser?"Пользователь":"Компьютер") + " выйграл")
-                    start()
+                    callMessage((isUser?"Пользователь":"Компьютер") + " выйграл")
                 })
             }
             else if(!game.field.some((x) => x === null)){
@@ -107,4 +104,11 @@ function updateScore(isUser){
         game.computerWin++
     }
     $('#score').text(`Счет ${game.userWin}:${game.computerWin}`)
+}
+
+function callMessage(message){
+    $('.container-xxl').append(`<div class="alert alert-info alert-dismissible fade show message-box" role="alert" id="myAlert">
+        <span>${message}</span>
+        <button type="button" class="btn-close" onclick="start()" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`)
 }
