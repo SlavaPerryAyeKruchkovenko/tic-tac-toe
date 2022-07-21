@@ -139,9 +139,17 @@ function callMessage(message, isUser){
         $('#myAlert span').text(message)
     }
     else{
-        $(`<div class="alert ${messageType} alert-dismissible fade show message-box"  role="alert" id="myAlert">
-        <span>${message}</span>
-        <button type="button" class="btn-close" onclick="start()" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>`).insertBefore($('.tic-table'))
+        $(`<div class="blur child-center">
+            <div class="alert ${messageType} alert-dismissible fade show message-box"  role="alert" id="myAlert">
+                <span>${message}</span>
+                <button type="button" class="btn-close" onclick="closeMessage()" data-bs-dismiss="alert" aria-label="Close">              
+                </button></div></div>`).insertBefore($('.tic-table'))
     }
+}
+function closeMessage(){
+    removeBlur()
+    start()
+}
+function removeBlur(){
+    $('.blur').remove()
 }
